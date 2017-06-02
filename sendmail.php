@@ -1,15 +1,15 @@
-﻿<?php
+<?php
     //goi thu vien
     include('mail/class.smtp.php');
     include "mail/class.phpmailer.php"; 
     $nFrom = "Vinsofts.com";    //mail duoc gui tu dau, thuong de ten cong ty ban
     $mFrom = 'mrbjkut0@gmail.com';  //dia chi email cua ban 
-    $mPass = 'loveyouandloveme';       //mat khau email cua ban
+    $mPass = 'loveyou@loveme';       //mat khau email cua ban
     $nTo = 'HoangHiep'; //Ten nguoi nhan
     $mTo = 'mr.bjn102@gmail.com';   //dia chi nhan mail
     $mail             = new PHPMailer();
-    $body             = $_REQUEST['message'];   // Noi dung email
-    $title = $_REQUEST['name'].' - '.$_REQUEST['email'];   //Tieu de gui mail
+    $title = $_POST['name'].' - '.$_POST['email'];   //Tieu de gui mail
+    $body             = "Name: ".$_POST['name']."<br> Email: ".$_POST['email']."<br> Message: ".$_POST['message'];   // Noi dung email
     $mail->IsSMTP();             
     $mail->CharSet  = "utf-8";
     $mail->SMTPDebug  = 0;   // enables SMTP debug information (for testing)
@@ -27,15 +27,17 @@
     $mail->AddAddress($mTo, $nTo);
     // thuc thi lenh gui mail 
     if(!$mail->Send()) {
-        echo "<script>";
-        echo "alert('Không thể gửi mail, vui lòng xem lại!');";
-        echo "window.location.assign('http://new-waffle.yez.vn/vinsofts/')";
-        echo "</script>";
+        // echo "<script>";
+        // echo "alert('Không thể gửi mail, vui lòng xem lại!');";
+        // echo "window.location.assign('http://vinsofts-landing.dev/')";
+        // echo "</script>";
+        echo 0;
          
     } else {
-         echo "<script>";
-        echo "alert('Mail của bạn đã được gửi!');";
-        echo "window.location.assign('http://new-waffle.yez.vn/vinsofts/')";
-        echo "</script>";
+        // echo "<script>";
+        // echo "alert('Mail của bạn đã được gửi!');";
+        // echo "window.location.assign('http://vinsofts-landing.dev/')";
+        // echo "</script>";
+        echo 1;
     }
 ?>

@@ -86,3 +86,8 @@
 	min-height: 150px;
 	background: url(AjaxLoader.gif) no-repeat center center
 }
+@media screen and (max-width: 992px){
+	.owl-theme .owl-controls .owl-buttons{
+		top: 25%;
+	}
+}
